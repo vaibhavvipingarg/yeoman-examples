@@ -1,0 +1,41 @@
+<!-- Stocks view -->
+<div class="row" style="display:flex;">
+  <form role="form" ng-submit="getUserInfo()">
+    <div class="input-group">
+      <input type="text" ng-model="userName" placeholder="Enter your email address" class="form-control">
+      <span class="input-group-btn">
+        <input type="submit" class="btn btn-primary" value="Get">
+      </span>
+    </div>
+  </form>
+  <form role="form" ng-submit="addStock()">
+    <div class="input-group">
+      <input type="text" ng-model="newStock" placeholder="Enter ticker symbol" class="form-control">
+      <span class="input-group-btn">
+        <input type="submit" class="btn btn-primary" value="Add">
+      </span>
+    </div>
+  </form>
+</div>
+<p></p>
+
+<!-- Todos list -->
+<div ui-sortable ng-model="stocks">
+  <p class="input-group" ng-repeat="stock in stocks" style="padding:5px 10px; cursor: move;">
+    <span ng-model="stock" class="form-control">{{stocks[$index]}}</span>
+    <span class="input-group-btn">
+    <label>
+        <input type="radio" ng-model="interval" value="0">
+        Moo
+      </label>
+      <label>
+        <input type="radio" ng-model="interval" ng-value="1">
+        Crazy
+      </label>
+    </span>
+    <span class="input-group-btn">
+      <button class="btn btn-danger" ng-click="removeStock($index)" aria-label="Remove">X</button>
+      <button class="btn btn-danger" ng-click="pauseStock($index)" aria-label="Pause">||</button>
+    </span>
+  </p>
+</div>
